@@ -1,0 +1,14 @@
+#!/bin/bash
+ICONS='Gruvbox-Light'
+FONT='Noto Sans Arabic 10'
+CURSOR='Future Cursors'
+
+SCHEMA='gsettings set org.gnome.desktop.interface'
+
+applyThemes() {
+  ${SCHEMA} icon-theme "$ICONS"
+  ${SCHEMA} cursor-theme "$CURSOR"
+  ${SCHEMA} font-name "$FONT"
+}
+
+applyThemes

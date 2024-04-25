@@ -1,0 +1,22 @@
+import = [
+    "~/.config/alacritty/themes/gruvbox-dark.toml"
+]
+
+[font]
+normal = {family = "JetBrainsMono Nerd Font"}
+bold = {family = "JetBrainsMono Nerd Font"}
+italic = {family = "JetBrainsMono Nerd Font"}
+bold_italic = {family = "JetBrainsMono Nerd Font"}
+size = 11
+glyph_offset = {x = 0, y = 0}
+
+[window]
+padding = {x = 4, y = 4}
+opacity = 0.9
+
+[cursor]
+style.shape = "Beam"
+style.blinking = "Never"
+unfocused_hollow = false
+
+

@@ -1,0 +1,238 @@
+{
+    "layer": "top",
+    "height": 18,
+    // "spacing": 4,
+    "reload_style_on_change": true,
+    "background": "",
+    "scale": "1.1",
+    "modules-left": [
+        "hyprland/workspaces",
+        "hyprland/mode",
+        "hyprland/window"
+    ],
+    "modules-center": [
+        "hyprland/scratchpad",
+        "clock",
+    ],
+    "modules-right": [
+        "tray",
+        "idle_inhibitor",
+        "hyprland/language",
+        "network",
+        "bluetooth",
+        "pulseaudio",
+        "power-profile-daemon",
+        "keyboard-state",
+        "group/hardware",
+        "custom/power"
+    ],
+    "keyboard-state": {
+        "numlock": true,
+        "capslock": true,
+        "format": "{name} {icon}",
+        "format-icons": {
+            "locked": "",
+            "unlocked": ""
+        }
+    },
+    "hyprland/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+    "hyprland/scratchpad": {
+        "format": "{icon} {count}",
+        "show-empty": false,
+        "format-icons": [
+            "",
+            ""
+        ],
+        "tooltip": true,
+        "tooltip-format": "{app}: {title}"
+    },
+    "hyprland/workspaces": {
+        "active-only": true,
+        "disable-scroll": true,
+        "sort-by-number": false,
+        "warp-on-scroll": true,
+        "on-click": "activate",
+        "persistent-workspaces": {
+            "*": 5
+        },
+    },
+    "hyprland/language": {
+        "format-en": "en",
+        "format-ar": "عربي"
+    },
+    "hyprland/window": {
+        "format": "{class}",
+        "max-length": 50,
+        "seperate-outputs": true
+    },
+    "group/hardware": {
+        "orientation": "horizontal",
+        "modules": [
+            "temperature",
+            "cpu",
+            "memory",
+            "battery",
+            "backlight",
+        ]
+    },
+    "cpu": {
+        "format": "{usage}% ",
+        "tooltip": true,
+        "interval": 1
+    },
+    "memory": {
+        "format": "{}% ",
+        "interval": 1
+    },
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% 󰂄",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{time} {icon}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": [
+            "󱊡",
+            "󱊢",
+            "󱊣"
+        ],
+        "interval": 1
+    },
+    "battery#bat2": {
+        "bat": "BAT2"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+     "tray": {
+         "format": "<span foreground='#ebdbb2'>{icon}</span>",
+     	  "icon-size": 14,
+     	  "spacing": 5
+     },
+    "clock": {
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": "<span foreground='#98971a'> </span><span>{:%I:%M %a %d}</span>", //"{:%I:%M %p}"
+        "format-alt": "<span foreground='#b16286'> </span><span>{:%H:%M}</span>", //"{:%Y-%m-%d}",
+        "actions": {
+            "on-click-middle": "mode",
+            "on-click-right": "shift_up",
+            "on-click": "shift_down"
+        }
+    },
+    "temperature": {
+        // "thermal-zone": 2,
+        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "critical-threshold": 80,
+        // "format-critical": "{temperatureC}°C {icon}",
+        "format": "{temperatureC}󰔄 {icon}",
+        "format-icons": [
+            "",
+            "",
+            ""
+        ],
+        "interval": 1
+    },
+    "backlight": {
+        "device": "intel_backlight",
+        "interval": 1,
+        "format": "{percent}% {icon}",
+        "format-icons": [
+            "🌑",
+            "🌘",
+            "🌗",
+            "🌖",
+            "🌕"
+        ]
+    },
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-ethernet": "{ipaddr}/{cidr} 󰈀",
+        "tooltip-format": "{ifname} via {gwaddr} ",
+	      "on-click-right": "$HOME/.config/waybar/scripts/wifi-menu.sh",
+        "tooltip-format-wifi": "{essid}({signalStrength}%)  ",
+        "tooltip-format-ethernet": "󰈀 {ifname}",
+        "tooltip-format-disconnected": "Disconnected",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Disconnected ",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "interval": 1
+    },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{volume}% {icon} {format_source}",
+        "format-bluetooth": "<span foreground='#458588'>{icon}</span> {volume}%  {format_source}",
+        "format-bluetooth-muted": "<span foreground='#fb4934'>󰖁</span>  {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "󰋋",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": [
+                "",
+                "",
+                ""
+            ]
+        },
+        "on-click": "pavucontrol",
+        "on-click-right": "qpwgraph",
+        "input": true,
+        "interval": 1
+    },
+    "power-profiles-daemon": {
+        "format": "{icon}",
+        "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+        "tooltip": true,
+        "format-icons": {
+            "performance": "",
+            "balanced": "",
+            "power-saver": ""
+        }
+    },
+    "bluetooth": {
+        "on-click": ".config/waybar/scripts/bluetooth-control",
+        "on-click-right": ".config/waybar/scripts/rofi-bluetooth",
+        "on-click-middle": ".config/waybar/scripts/rofi-bluetooth",
+        "format": "{icon}",
+        "interval": 15,
+        "format-icons": {
+            "on": "",
+            "off": "󰂲",
+            "disabled": "󰂲",
+            "connected": ""
+        },
+        "tooltip-format": "{device_alias} {status}"
+    },
+    "custom/power": {
+        "format": "⏻",
+        "on-click": "wlogout"
+    }
+    // "custom/media": {
+    //     "format": "{icon} {}",
+    //     "return-type": "json",
+    //     "max-length": 40,
+    //     "format-icons": {
+    //         "spotify": "",
+    //         "default": "🎜"
+    //     },
+    // "escape": true,
+    //     "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
+    //     // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter >
+    // }
+}
