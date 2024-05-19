@@ -1,30 +1,79 @@
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=5000
-SAVEHIST=5000
-# End of lines configured by zsh-newuser-install
+SAVEHIST=HISTSIZE
+HISTDUP=erase
+setopt appendhistory
+setopt sharehistory
+setopt hist_ignore_space
+setopt hist_ignore_all_dups
+setopt hist_save_no_dups
+setopt hist_ignore_dups
+setopt hist_find_no_dups
+
+# shell integrations
+eval "$(fzf --zsh)"
+
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/motaz/.zshrc'
 
-autoload -Uz compinit
-compinit
+# Set the directory we want to store zinit and plugins
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+
+# Download zinit, if it's not.
+if [ ! -d "$ZINIT_HOME" ]; then
+	mkdir -p "$(dirname $ZINIT_HOME)"
+	git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+fi
+
+# source zinit
+source "${ZINIT_HOME}/zinit.zsh"
+
+# Plugins
+zinit light zsh-users/zsh-syntax-highlighting
+zinit light zsh-users/zsh-completions
+zinit light zsh-users/zsh-autosuggestions
+zinit light Aloxaf/fzf-tab
+
+# load completions
+autoload -Uz compinit && compinit
+# compinit
 # End of lines added by compinstall
-#Starship Theme
+
+# Starship Theme
 eval "$(starship init zsh)"
-#Plugins
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-#fpath=(/home/motaz/Downloads/githubs/zsh-completions/src $fpath)
-#Aliases
+
+# Aliases
 alias nv="nvim" 
 alias u="doas pacman -Syu"
 alias i="doas pacman -S"
-alias r="doas pacman -Rns"
+alias r="doas pacman -Rsn"
 alias q='doas pacman -Ss'
 alias how="tldr"
 alias ll="eza -laMug --icons=always --smart-group --time-style relative"
 alias ls="eza -a --icons=always"
 alias code="codium"
+alias ip='ip -color=auto'
+alias grep='grep --color=auto'
+alias diff='diff --color=auto'
+alias yt='yt-dlp --extract-audio --add-metadata --xattrs --embed-thumbnail --audio-quality 0 --audio-format mp3' # youtube-dl
+alias ytv='ty-dlp --merge-output-format mp4 -f "bestvideo+bestaudio[ext=m4a]/best" --embed-thumbnail --add-metadata'
+alias c="clear"
 #RTL or LTR
-#printf "\e[?2501h"
+printf "\e[?2501h"
 
+# launch bicon if not launched
+if ! [[ "$(ps -p $(ps -p $(echo $$) -o ppid=) -o comm=)" =~ 'bicon'* ]]; then
+  bicon.bin
+fi
+
+# vim binds 
+bindkey -v
+bindkey '^k' history-search-backward
+bindkey '^j' history-search-forward
+
+# completion styling
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' menu no
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -a --icons=always $realpath'
+zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'eza -a --icons=always $realpath'
