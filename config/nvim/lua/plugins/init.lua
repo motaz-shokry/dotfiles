@@ -23,7 +23,11 @@ return {
                 "stylua",
                 "html-lsp",
                 "css-lsp",
-                "prettier",
+                "typescript-language-server",
+                "tailwindcss-language-server",
+                "eslint-lsp",
+                "js-debug-adapter",
+                "emmet-language-server",
             },
         },
     },
@@ -37,22 +41,36 @@ return {
                 "html",
                 "css",
                 "javascript",
+                "typescript",
                 "c",
             },
         },
     },
-    -- {
-    --     "jackMort/ChatGPT.nvim",
-    --     event = "VeryLazy",
-    --     dependencies = {
-    --         "MunifTanjim/nui.nvim",
-    --         "nvim-lua/plenary.nvim",
-    --         "nvim-telescope/telescope.nvim",
-    --     },
-    --     config = function()
-    --         require("chatgpt").setup({
-    --             api_key_cmd = "echo ''"
-    --         })
-    --     end,
-    -- },
+    {
+        "windwp/nvim-ts-autotag",
+        ft = {
+            "javascript",
+            "javascriptreact",
+            "typescript",
+            "typescriptreact",
+            "html",
+        },
+        config = function()
+            require("nvim-ts-autotag").setup()
+        end,
+    },
+    {
+        "SmiteshP/nvim-navic",
+        event = "LspAttach",
+        config = function()
+            dofile(vim.g.base46_cache .. "navic")
+
+            require("nvim-navic").setup {
+                highlight = true,
+                lsp = { auto_attach = true },
+            }
+
+            vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
+        end,
+    },
 }

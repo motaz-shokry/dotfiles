@@ -1,23 +1,20 @@
 
 configuration{
-    modes: "run,drun,window,emoji,filebrowser";
+    modes: "run,drun,window,filebrowser";
     lines: 5;
     font: "Noto Sans Nerd Font 10";
     show-icons: true;
     icon-theme: "Gruvbox-Light";
     terminal: "alacritty";
     drun-display-format: "{icon}  {name}";
-    location: 0;
-    disable-history: true;
+    location: 2;
+    disable-history: false;
     hide-scrollbar: false;
     display-drun: "  Apps ";
-    display-emoji: "󰞅 Emoji ";
     display-filebrowser: "󰉋 Files";
     display-window: "󱂬 Windows";
     display-run: " Run";
     sidebar-mode: true;
-
-
 }
 
 @theme "gruv"
@@ -28,10 +25,10 @@ element-text, element-icon , mode-switcher {
 }
 
 window {
-    height: 360px;
-    border: 3px;
+    border: 1;
     border-color: @border-col;
     background-color: @bg-col;
+    border-radius: 8px;
 }
 
 mainbox {
@@ -49,13 +46,8 @@ prompt {
     background-color: @blue;
     padding: 6px;
     text-color: @bg-col;
-    border-radius: 3px;
+    border-radius: 8px;
     margin: 20px 0px 0px 20px;
-}
-
-textbox-prompt-colon {
-    expand: false;
-    str: ":";
 }
 
 entry {
@@ -65,11 +57,17 @@ entry {
     background-color: @bg-col;
 }
 
+textbox-prompt-colon {
+    expand: false;
+    str: ":";
+}
+
+
 listview {
     border: 0px 0px 0px;
-    padding: 6px 0px 0px;
+    padding: 6px 6px 0px 0px;
     margin: 10px 0px 0px 20px;
-    columns: 2;
+    columns: 1;
     background-color: @bg-col;
 }
 
@@ -90,7 +88,7 @@ element selected {
 
 mode-switcher {
     spacing: 0;
-  }
+}
 
 button {
     padding: 10px;

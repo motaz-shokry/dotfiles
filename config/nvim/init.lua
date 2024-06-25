@@ -44,8 +44,75 @@ require "nvchad.autocmds"
 vim.schedule(function()
     require "mappings"
 end)
+
+vim.o.wrap = false
+vim.o.winbar = " "
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
-vim.opt.colorcolumn = "120"
-vim.o.wrap = false
+-- vim.opt.colorcolumn = "120"
+vim.opt.autoindent = true
+vim.opt.smartindent = true
+vim.scriptencoding = "UTF-8"
+vim.opt.encoding = "UTF-8"
+vim.opt.fileencoding = "UTF-8"
+vim.opt.smarttab = true
+vim.opt.backspace = { "start", "eol", "indent" }
+vim.opt.path:append { "**" }
+vim.opt.wildignore:append { "*/node_modules/*" }
+vim.opt.termguicolors = true
+vim.opt.hlsearch = true
+vim.opt.showcmd = true
+vim.opt.cmdheight = 0
+vim.opt.formatoptions:append { "r" }
+vim.opt.backup = false
+vim.opt.swapfile = false
+
+-- Neovide configs
+if vim.g.neovide then
+    -- vim.o.guifont = "JetBrainsMonoNL Nerd Font,IBM Plex Sans Arabic:h10"
+    vim.opt.linespace = 0
+    vim.g.neovide_scale_factor = 1.0
+    vim.g.neovide_text_gamma = 0.0
+    vim.g.neovide_text_contrast = 0.5
+    vim.g.neovide_position_animation_length = 0.05
+    vim.g.neovide_scroll_animation_length = 0.1
+    vim.g.neovide_scroll_animation_far_lines = 0.5
+    vim.g.neovide_hide_mouse_when_typing = true
+    vim.g.neovide_underline_stroke_scale = 1.0
+    vim.g.neovide_theme = "auto"
+    vim.g.experimental_layer_grouping = false
+    vim.g.neovide_refresh_rate = 60
+    vim.g.neovide_refresh_rate_idle = 5
+    vim.g.neovide_confirm_quit = true
+    vim.g.neovide_profiler = false
+    vim.g.neovide_input_ime = true
+    vim.g.neovide_cursor_animation_length = 0.13
+    vim.g.neovide_cursor_trail_size = 0.1
+    vim.g.neovide_cursor_antialiasing = false
+    -- vim.cmd('set arabic')
+    -- vim.cmd('set rightleft')
+
+    -- the IME Input
+    local function set_ime(args)
+        if args.event:match "Enter$" then
+            vim.g.neovide_input_ime = true
+        else
+            vim.g.neovide_input_ime = false
+        end
+    end
+
+    local ime_input = vim.api.nvim_create_augroup("ime_input", { clear = true })
+
+    vim.api.nvim_create_autocmd({ "InsertEnter", "InsertLeave" }, {
+        group = ime_input,
+        pattern = "*",
+        callback = set_ime,
+    })
+
+    vim.api.nvim_create_autocmd({ "CmdlineEnter", "CmdlineLeave" }, {
+        group = ime_input,
+        pattern = "[/\\?]",
+        callback = set_ime,
+    })
+end

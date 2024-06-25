@@ -1,4 +1,3 @@
-# Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=5000
 SAVEHIST=HISTSIZE
@@ -50,14 +49,14 @@ alias i="doas pacman -S"
 alias r="doas pacman -Rsn"
 alias q='doas pacman -Ss'
 alias how="tldr"
-alias ll="eza -laMug --icons=always --smart-group --time-style relative"
-alias ls="eza -a --icons=always"
+alias ll="eza -laMug --icons=always --color=always --smart-group --time-style relative"
+alias ls="eza -a --icons=always --color=always"
 alias code="codium"
 alias ip='ip -color=auto'
 alias grep='grep --color=auto'
 alias diff='diff --color=auto'
 alias yt='yt-dlp --extract-audio --add-metadata --xattrs --embed-thumbnail --audio-quality 0 --audio-format mp3' # youtube-dl
-alias ytv='ty-dlp --merge-output-format mp4 -f "bestvideo+bestaudio[ext=m4a]/best" --embed-thumbnail --add-metadata'
+alias ytv='yt-dlp --merge-output-format mp4 -f "bestvideo+bestaudio[ext=m4a]/best" --embed-thumbnail --add-metadata'
 alias c="clear"
 #RTL or LTR
 printf "\e[?2501h"
@@ -74,6 +73,15 @@ bindkey '^j' history-search-forward
 
 # completion styling
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -a --icons=always $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'eza -a --icons=always $realpath'
+
+# bun completions
+[ -s "/home/motaz/.bun/_bun" ] && source "/home/motaz/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
