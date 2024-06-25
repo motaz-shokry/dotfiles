@@ -5,7 +5,7 @@ fi
 
 # vars
 export PATH=$PATH:/home/$USER/.local/bin
-export EDITOR="vim"
+export EDITOR="nvim"
 export BROWSER="brave"
 export TERM="alacritty"
 export TERMINAL="alacritty"

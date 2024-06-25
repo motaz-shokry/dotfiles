@@ -47,7 +47,8 @@ alias nv="nvim"
 alias u="doas pacman -Syu"
 alias i="doas pacman -S"
 alias r="doas pacman -Rsn"
-alias q='doas pacman -Ss'
+alias q='doas pacman -Si'
+alias s="doas pacman -Ss"
 alias how="tldr"
 alias ll="eza -laMug --icons=always --color=always --smart-group --time-style relative"
 alias ls="eza -a --icons=always --color=always"

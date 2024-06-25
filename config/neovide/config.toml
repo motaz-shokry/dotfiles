@@ -1,0 +1,20 @@
+[font]
+normal = ["FiraCode Nerd Font"]
+bold = ["FiraCode Nerd Font"]
+italic = ["FiraCode Nerd Font"]
+bold_italic = ["FiraCode Nerd Font"]
+size = 10
+features = {"FiraCode Nerd Font" = [ "+ss01", "+ss07", "+ss11", "-calt", "+ss09", "+ss02", "+ss14", "+ss16", "+ss17" ]}
+
+no-multigrid = false
+srgb = false
+tabs = true
+theme = "auto"
+title-hidden = true
+vsync = true
+wsl = false
+fork = false
+frame = "full"
+idle = true
+maximized = false
+

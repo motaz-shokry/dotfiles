@@ -4,7 +4,7 @@ configuration{
     lines: 5;
     font: "Noto Sans Nerd Font 10";
     show-icons: true;
-    icon-theme: "Gruvbox-Light";
+    icon-theme: "Gruvbox-Plus-Dark";
     terminal: "alacritty";
     drun-display-format: "{icon}  {name}";
     location: 2;

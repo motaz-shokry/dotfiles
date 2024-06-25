@@ -250,8 +250,15 @@ label:focus {
 
 #custom-notification {
     padding: 0 5px;
-    border-radius:5px;
+    border-radius: 5px;
     margin: 1px 0 1px 4px;
     color: #ebdbb2;
+    background-color: #1d2021;
+}
+
+#custom-networkTraffic {
+    padding: 0 5px;
+    color: #ffffff;
+    margin: 1px 4px 1px 0;
     background-color: #1d2021;
 }

@@ -8,7 +8,7 @@
     "modules-left": [
         "hyprland/workspaces",
         "hyprland/mode",
-        "hyprland/window"
+        "hyprland/window",
     ],
     "modules-center": [
         "hyprland/scratchpad",
@@ -154,18 +154,20 @@
         ]
     },
     "network": {
-        // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ipaddr}/{cidr} 󰈀",
+        // "interface": "wlo1", // (Optional) To force the use of this interface
+        "format": "{bandwidthDownBytes} {bandwidthUpBytes}",
+        "format-wifi": "{bandwidthDownBytes} {bandwidthUpBytes} ",
+        "format-ethernet": "{bandwidthDownBytes} {bandwidthUpBytes} 󰈀",
         "tooltip-format": "{ifname} via {gwaddr} ",
-	      "on-click-right": "$HOME/.config/waybar/scripts/wifi-menu.sh",
-        "tooltip-format-wifi": "{essid}({signalStrength}%)  ",
+	    "on-click-right": "$HOME/.config/waybar/scripts/wifi-menu.sh",
+        "tooltip-format-wifi": "{essid}({signalStrength}%) ",
         "tooltip-format-ethernet": "󰈀 {ifname}",
         "tooltip-format-disconnected": "Disconnected",
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "Disconnected ",
         "format-alt": "{ifname}: {ipaddr}/{cidr}",
-        "interval": 1
+        "interval": 1,
+        "max-length": 25,
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
@@ -240,7 +242,6 @@
         "on-click": "swaync-client -t -sw",
         "on-click-right": "swaync-client -d -sw",
         "escape": true
-        },
-
-
+    },
+    
 }

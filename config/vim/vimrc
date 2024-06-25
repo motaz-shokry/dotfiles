@@ -5,7 +5,7 @@ set mouse=a
 set tabstop=4
 set shiftwidth=4
 set autoindent
-set encoding=utf-8
+set encoding=UTF-8
 set arabicshape
 set guifont=Noto_Sans_Arabic
 " Plugins
@@ -18,10 +18,11 @@ Plug 'preservim/nerdtree'
 Plug 'ap/vim-css-color'
 Plug 'rhysd/vim-clang-format'
 Plug 'plasticboy/vim-markdown'
-Plug 'https://github.com/tpope/vim-commentary'
-Plug 'https://github.com/ryanoasis/vim-devicons'
-Plug 'https://github.com/preservim/tagbar'
-Plug 'https://github.com/terryma/vim-multiple-cursors'
+Plug 'tpope/vim-commentary'
+Plug 'ryanoasis/vim-devicons'
+Plug 'preservim/tagbar'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 nnoremap <C-n> :NERDTreeToggle<CR>

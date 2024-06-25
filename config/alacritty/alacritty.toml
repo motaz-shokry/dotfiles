@@ -2,21 +2,43 @@ import = [
     "~/.config/alacritty/themes/gruvbox-dark.toml"
 ]
 
+live_config_reload = true
+
+[bell]
+animation = "EaseOutExpo"
+duration = 0
+
+[colors]
+draw_bold_text_with_bright_colors = true
+
 [font]
-normal = {family = "JetBrainsMono Nerd Font"}
-bold = {family = "JetBrainsMono Nerd Font"}
-italic = {family = "JetBrainsMono Nerd Font"}
-bold_italic = {family = "JetBrainsMono Nerd Font"}
-size = 11
+normal = {family = "JetBrainsMonoNL Nerd Font Propo", style= "SemiBold"}
+bold = {family = "JetBrainsMonoNL Nerd Font Propo", style = "Bold"}
+italic = {family = "JetBrainsMonoNL Nerd Font Propo", style = "italic"}
+bold_italic = {family = "JetBrainsMonoNL Nerd Font Propo", style = "italic Bold"}
+size = 10
 glyph_offset = {x = 0, y = 0}
 
 [window]
-padding = {x = 4, y = 4}
+padding = {x = 4, y = 0}
 opacity = 0.9
 
 [cursor]
-style.shape = "Beam"
-style.blinking = "Never"
+blink_interval = 500
+blink_timeout = 5
 unfocused_hollow = false
+style.shape = "Block"
+style.blinking = "Off"
 
+[mouse]
+hide_when_typing = true
 
+[[mouse.bindings]]
+action = "PasteSelection"
+mouse = "Middle"
+
+[selection]
+semantic_escape_chars = ",│`|:\"' ()[]{}<>"
+
+# [shell]
+# program = "/bin/zsh"

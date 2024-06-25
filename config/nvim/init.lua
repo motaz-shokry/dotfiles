@@ -45,29 +45,29 @@ vim.schedule(function()
     require "mappings"
 end)
 
-vim.o.wrap = false
-vim.o.winbar = " "
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
--- vim.opt.colorcolumn = "120"
-vim.opt.autoindent = true
-vim.opt.smartindent = true
-vim.scriptencoding = "UTF-8"
-vim.opt.encoding = "UTF-8"
-vim.opt.fileencoding = "UTF-8"
-vim.opt.smarttab = true
-vim.opt.backspace = { "start", "eol", "indent" }
-vim.opt.path:append { "**" }
-vim.opt.wildignore:append { "*/node_modules/*" }
-vim.opt.termguicolors = true
-vim.opt.hlsearch = true
-vim.opt.showcmd = true
-vim.opt.cmdheight = 0
-vim.opt.formatoptions:append { "r" }
-vim.opt.backup = false
-vim.opt.swapfile = false
-
+-- vim.o.wrap = false
+-- vim.o.winbar = " "
+-- vim.opt.tabstop = 4
+-- vim.opt.shiftwidth = 4
+-- vim.opt.expandtab = true
+-- -- vim.opt.colorcolumn = "120"
+-- vim.opt.autoindent = true
+-- vim.opt.smartindent = true
+-- vim.scriptencoding = "UTF-8"
+-- vim.opt.encoding = "UTF-8"
+-- vim.opt.fileencoding = "UTF-8"
+-- vim.opt.smarttab = true
+-- vim.opt.backspace = { "start", "eol", "indent" }
+-- vim.opt.path:append { "**" }
+-- vim.opt.wildignore:append { "*/node_modules/*" }
+-- vim.opt.termguicolors = true
+-- vim.opt.hlsearch = true
+-- vim.opt.showcmd = true
+-- vim.opt.cmdheight = 0
+-- vim.opt.formatoptions:append { "r" }
+-- vim.opt.backup = false
+-- vim.opt.swapfile = false
+--
 -- Neovide configs
 if vim.g.neovide then
     -- vim.o.guifont = "JetBrainsMonoNL Nerd Font,IBM Plex Sans Arabic:h10"
