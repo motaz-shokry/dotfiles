@@ -43,7 +43,7 @@ autoload -Uz compinit && compinit
 eval "$(starship init zsh)"
 
 # Aliases
-alias nv="nvim" 
+alias nv="neovide&" 
 alias u="doas pacman -Syu"
 alias i="doas pacman -S"
 alias r="doas pacman -Rsn"
@@ -63,12 +63,12 @@ alias c="clear"
 printf "\e[?2501h"
 
 # launch bicon if not launched
-if ! [[ "$(ps -p $(ps -p $(echo $$) -o ppid=) -o comm=)" =~ 'bicon'* ]]; then
-  bicon.bin
-fi
+#if ! [[ "$(ps -p $(ps -p $(echo $$) -o ppid=) -o comm=)" =~ 'bicon'* ]]; then
+#  bicon.bin
+#fi
 
-# vim binds 
-bindkey -v
+# binds 
+bindkey -e
 bindkey '^k' history-search-backward
 bindkey '^j' history-search-forward
 

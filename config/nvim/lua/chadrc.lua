@@ -6,18 +6,18 @@ local M = {}
 
 M.ui = {
     theme = "gruvbox",
-    transparency = true,
-    -- changed_themes = {
-    --     gruvbox = {
-    --         base_16 = {
-    --             base00 = "#1d2021",
-    --         },
-    --         base_30 = {
-    --             darker_black = "#1d2021",
-    --             black = "#1d2021",
-    --         },
-    --     },
-    -- },
+    transparency = false,
+    changed_themes = {
+        gruvbox = {
+            base_16 = {
+                base00 = "#1d2021",
+            },
+            base_30 = {
+                darker_black = "#1d2021",
+                black = "#1d2021",
+            },
+        },
+    },
 
     statusline = {
         theme = "minimal",

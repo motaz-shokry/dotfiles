@@ -11,5 +11,5 @@ export TERM="alacritty"
 export TERMINAL="alacritty"
 
 # esc to caps
-loadkeys $HOME/.config/loadkeys/loadkeysrc
+# loadkeys $HOME/.config/loadkeys/loadkeysrc
 
